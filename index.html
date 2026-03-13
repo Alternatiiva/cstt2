@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>CS2 Tournament — Spectator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">
+    <h1>CS2 Tournament — Bracket</h1>
+    <div class="note">Счёт и время обновляются автоматически.</div>
+  </div>
+
+  <div class="container">
+    <div class="bracket">
+      <!-- полуфиналы -->
+      <div class="round">
+        <div class="match">
+          <div class="timebox top-left" id="time1"></div>
+          <div class="team"><span id="t1"></span><span class="score" id="s1"></span></div>
+          <div class="team"><span id="t2"></span><span class="score" id="s2"></span></div>
+        </div>
+        <div class="match">
+          <div class="timebox top-left" id="time2"></div>
+          <div class="team"><span id="t3"></span><span class="score" id="s3"></span></div>
+          <div class="team"><span id="t4"></span><span class="score" id="s4"></span></div>
+        </div>
+      </div>
+
+      <!-- финал -->
+      <div class="round final-round">
+        <div class="match">
+          <div class="timebox top-left" id="ftime"></div>
+          <div class="team"><span id="ft1"></span><span class="score" id="fs1"></span></div>
+          <div class="team"><span id="ft2"></span><span class="score" id="fs2"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="champion" id="champ"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

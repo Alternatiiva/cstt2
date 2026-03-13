@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>CS2 Tournament — Admin</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="admin">
+    <div class="admin-top">
+      <div>
+        <h2 style="margin:0 0 6px 0">Admin Panel</h2>
+        <div class="note">Изменяйте названия команд, счёт и время матчей. После сохранения изменения сразу появятся у зрителей.</div>
+      </div>
+
+      <div class="login" style="align-items:flex-start;">
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input id="adminPw" type="password" placeholder="Пароль администратора" />
+          <button id="loginBtn" class="btn secondary">Войти</button>
+        </div>
+        <div id="badPw" style="display:none; color:#ffb4b4; font-size:13px; margin-top:6px;">Неверный пароль</div>
+      </div>
+    </div>
+
+    <!-- по умолчанию скрываем панель — показываем только после успешного входа -->
+    <div id="adminPanel" style="display:none; margin-top:18px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="min-width:240px">
+          <div style="font-size:13px; color:#cbd5e1; margin-bottom:6px;">Финалисты:</div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div id="finalist1" style="font-weight:700">-</div>
+            <div style="color:#9ca3af;">vs</div>
+            <div id="finalist2" style="font-weight:700">-</div>
+            <div style="margin-left:10px; color:#9ca3af;" id="championAdmin"></div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <button id="saveBtn" class="btn">Сохранить</button>
+          <button id="saveFinalBtn" class="btn">Сохранить финал</button>
+          <button id="resetBtn" class="btn secondary">Сбросить</button>
+          <button id="exportBtn" class="btn secondary">Экспорт</button>
+          <input id="importFile" type="file" accept=".json" style="background:transparent; color:#fff; border-radius:6px;" />
+        </div>
+      </div>
+
+      <hr style="border:none; height:1px; background:rgba(255,255,255,0.03); margin:16px 0;" />
+
+      <div class="help">Заполните все поля для каждой команды: название, текущий счёт, время (формат 18:00 или любое текстовое значение). Финальный счёт вводится отдельно.</div>
+
+      <div style="margin-top:12px;">
+        <div style="display:grid; grid-template-columns: 1fr 90px 120px; gap:10px; align-items:center; margin-top:12px;">
+          <div class="label">Команда</div>
+          <div class="label">Счёт</div>
+          <div class="label">Время (для матча)</div>
+        </div>
+
+        <div class="grid" style="margin-top:8px;">
+          <input id="team1" placeholder="Team 1" />
+          <input id="score1" type="number" min="0" />
+          <input id="time1a" placeholder="18:00" />
+
+          <input id="team2" placeholder="Team 2" />
+          <input id="score2" type="number" min="0" />
+          <div style="padding:8px; color:#9ca3af;">(использует время команды 1)</div>
+
+          <input id="team3" placeholder="Team 3" />
+          <input id="score3" type="number" min="0" />
+          <input id="time2a" placeholder="19:00" />
+
+          <input id="team4" placeholder="Team 4" />
+          <input id="score4" type="number" min="0" />
+          <div style="padding:8px; color:#9ca3af;">(использует время команды 3)</div>
+        </div>
+
+        <h3 style="margin-top:18px; margin-bottom:6px;">Финал</h3>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input id="fscore1" type="number" min="0" placeholder="Счёт финалиста 1" />
+          <input id="fscore2" type="number" min="0" placeholder="Счёт финалиста 2" />
+          <input id="ftimea" placeholder="Время финала (20:00)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
